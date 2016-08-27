@@ -1,5 +1,5 @@
 language: ruby
-before_script:
+before_install:
   - mysql -u root -e "create database IF NOT EXISTS test;"
 rvm:
   - 2.2
