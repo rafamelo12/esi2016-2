@@ -1,6 +1,6 @@
 language: ruby
 before_install:
-  - mysql -u root -e "create database IF NOT EXISTS test;"
+  - mysql -u root -e "create database IF NOT EXISTS esi_test;"
 rvm:
   - 2.2
 services:
