@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   database: esi_development
   pool: 5
-  username: root
+  username: postgres
   password:
   # socket: /tmp/mysql.sock
 
@@ -28,7 +28,7 @@ development:
 test: &test
   adapter: postgresql
   database: esi_test
-  username: root
+  username: postgres
   encoding: utf8
 
 # As with config/secrets.yml, you never want to store sensitive information,
