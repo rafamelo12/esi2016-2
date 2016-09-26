@@ -114,7 +114,6 @@ GEM
     minitest (5.9.0)
     multi_json (1.12.1)
     multi_test (0.1.2)
-    mysql2 (0.4.4)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -220,7 +219,6 @@ DEPENDENCIES
   jasmine
   jbuilder (~> 2.0)
   jquery-rails
-  mysql2 (>= 0.3.13, < 0.5)
   pg
   rails (= 4.2.6)
   rspec (~> 3.0)
