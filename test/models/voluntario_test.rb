@@ -2,7 +2,10 @@ require 'test_helper'
 
 class VoluntarioTest < ActiveSupport::TestCase
   def setup
-    @voluntario = Voluntario.new(email: "admin@ajudandoaajudar.org.br", senha: "hashSenha", nome: "Admin", idade: 23, rua: "Ajudando", bairro: "Ajudar", cidade: "São Paulo", estado: "SP", cep:"01123099", telefone: "111234-5678")
+    @voluntario = Voluntario.new(email: "admin@ajudandoaajudar.org.br", senha: "hashSenha", 
+                                 nome: "Admin", idade: 23, rua: "Ajudando", bairro: "Ajudar", 
+                                 cidade: "São Paulo", estado: "SP", cep:"01123099", telefone: "111234-5678",
+                                 password: "foobar", password_confirmation: "foobar")
   end
 
   test "should be valid" do
@@ -30,7 +33,7 @@ class VoluntarioTest < ActiveSupport::TestCase
   end
 
   test "email validation should accept valid addresses" do
-    valid_addresses = %w[admin@ajudandoaajudar.org.br user@example.com USER@foo.com
+    valid_addresses = %w[user@example.com USER@foo.com
                          A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
     valid_addresses.each do |valid_address|
         @voluntario.email = valid_address
@@ -54,15 +57,25 @@ class VoluntarioTest < ActiveSupport::TestCase
     assert_not duplicate_user.valid?
   end
 
-  test "senha should be present" do
-    @voluntario.senha = ""
+  # test "senha should be present" do
+  #   @voluntario.senha = ""
+  #   assert_not @voluntario.valid?
+  # end
+
+  test "password should be present (nonblank)" do
+    @voluntario.password = @voluntario.password_confirmation = " " * 6
     assert_not @voluntario.valid?
   end
 
-  test "senha should not be too long" do
-    @voluntario.senha = "a" * 256
+  test "password should have a minimum length" do
+    @voluntario.password = @voluntario.password_confirmation = "a" * 5
     assert_not @voluntario.valid?
   end
+
+  # test "senha should not be too long" do
+  #   @voluntario.senha = "a" * 256
+  #   assert_not @voluntario.valid?
+  # end
 
   test "idade should be present" do
     @voluntario.idade = ""

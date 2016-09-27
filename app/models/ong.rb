@@ -6,10 +6,12 @@ class Ong < ActiveRecord::Base
               format: { with: VALID_EMAIL_REGEX },
               uniqueness: { case_sensitive: false }
     validates :senha, presence: true, length: { maximum: 255 }
+    validates :password, presence: true, length: { minimum: 6 }
     validates :rua, presence: true, length: { maximum: 50 }
     validates :bairro, presence: true, length: { maximum: 50 }
     validates :cidade, presence: true, length: { maximum: 50 }
     validates :estado, presence: true, length: { maximum: 50 }
     validates :cep, presence: true, length: { maximum: 8 }
     validates :telefone, presence: true, length: { maximum: 11 }
+    has_secure_password
 end

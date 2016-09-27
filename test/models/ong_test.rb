@@ -2,7 +2,10 @@ require 'test_helper'
 
 class OngTest < ActiveSupport::TestCase
   def setup
-    @ong = Ong.new(email: "admin@ajudandoaajudar.org.br", senha: "hashSenha", nome: "Admin", rua: "Ajudando", bairro: "Ajudar", cidade: "São Paulo", estado: "SP", cep:"01123099", telefone: "111234-5678")
+    @ong = Ong.new(email: "admin@ajudandoaajudar.org.br", senha: "hashSenha",
+                   nome: "Admin", rua: "Ajudando", bairro: "Ajudar", cidade: "São Paulo", 
+                   estado: "SP", cep:"01123099", telefone: "111234-5678",
+                   password: "foobar", password_confirmation: "foobar")
   end
 
   test "should be valid" do
@@ -54,15 +57,25 @@ class OngTest < ActiveSupport::TestCase
     assert_not @ong.valid?
   end
 
-  test "senha should be present" do
-    @ong.senha = ""
+  # test "senha should be present" do
+  #   @ong.senha = ""
+  #   assert_not @ong.valid?
+  # end
+
+  test "password should be present (nonblank)" do
+    @ong.password = @ong.password_confirmation = " " * 6
     assert_not @ong.valid?
   end
 
-  test "senha should not be too long" do
-    @ong.senha = "a" * 256
+  test "password should have a minimum length" do
+    @ong.password = @ong.password_confirmation = "a" * 5
     assert_not @ong.valid?
   end
+
+  # test "senha should not be too long" do
+  #   @ong.senha = "a" * 256
+  #   assert_not @ong.valid?
+  # end
 
   test "rua should be present" do
     @ong.rua = ""
