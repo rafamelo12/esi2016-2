@@ -2,7 +2,7 @@ require 'test_helper'
 
 class OngTest < ActiveSupport::TestCase
   def setup
-    @ong = Ong.new(email: "admin@ajudandoaajudar.org.br", senha: "hashSenha", nome: "Admin", rua: "Ajudando", bairro: "Ajudar", cidade: "São Paulo", estado: "SP", cep:"01123-099", telefone: "111234-5678")
+    @ong = Ong.new(email: "admin@ajudandoaajudar.org.br", senha: "hashSenha", nome: "Admin", rua: "Ajudando", bairro: "Ajudar", cidade: "São Paulo", estado: "SP", cep:"01123099", telefone: "111234-5678")
   end
 
   test "should be valid" do
@@ -14,8 +14,43 @@ class OngTest < ActiveSupport::TestCase
     assert_not @ong.valid?
   end
 
+  test "nome should not be too long" do
+    @ong.nome = "a" * 101
+    assert_not @ong.valid?
+  end
+
   test "email should be present" do
     @ong.email = ""
+    assert_not @ong.valid?
+  end
+
+  test "email validation should accept valid addresses" do
+    valid_addresses = %w[admin@ajudandoaajudar.org.br user@example.com USER@foo.com
+                         A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
+    valid_addresses.each do |valid_address|
+        @ong.email = valid_address
+        assert @ong.valid?, "#{valid_address.inspect} should be valid"
+    end
+  end
+
+  test "email validation should reject invalid addresses" do
+    invalid_addresses = %w[user@example,com user_at_foo.org user.name@example.
+                         foo@bar_baz.com foo@bar+baz.com]
+    invalid_addresses.each do |invalid_address|
+        @ong.email = invalid_address
+        assert_not @ong.valid?, "#{invalid_address.inspect} should be invalid"
+    end
+  end
+
+  test "email adresses should be unique" do
+    duplicate_user = @ong.dup
+    duplicate_user.email = @ong.email.upcase
+    @ong.save
+    assert_not duplicate_user.valid?
+  end
+
+  test "email should not be too long" do
+    @ong.email = "a" * 256
     assert_not @ong.valid?
   end
 
@@ -24,8 +59,18 @@ class OngTest < ActiveSupport::TestCase
     assert_not @ong.valid?
   end
 
+  test "senha should not be too long" do
+    @ong.senha = "a" * 256
+    assert_not @ong.valid?
+  end
+
   test "rua should be present" do
     @ong.rua = ""
+    assert_not @ong.valid?
+  end
+
+  test "rua should not be too long" do
+    @ong.rua = "a" * 51
     assert_not @ong.valid?
   end
 
@@ -34,8 +79,18 @@ class OngTest < ActiveSupport::TestCase
     assert_not @ong.valid?
   end
 
+  test "bairro should not be too long" do
+    @ong.bairro = "a" * 51
+    assert_not @ong.valid?
+  end
+
   test "cidade should be present" do
     @ong.cidade = ""
+    assert_not @ong.valid?
+  end
+
+  test "cidade should not be too long" do
+    @ong.cidade = "a" * 51
     assert_not @ong.valid?
   end
 
@@ -44,13 +99,28 @@ class OngTest < ActiveSupport::TestCase
     assert_not @ong.valid?
   end
 
+  test "estado should not be too long" do
+    @ong.estado = "a" * 51
+    assert_not @ong.valid?
+  end
+
   test "cep should be present" do
     @ong.cep = ""
     assert_not @ong.valid?
   end
 
+  test "cep should not be too long" do
+    @ong.cep = "a" * 9
+    assert_not @ong.valid?
+  end
+
   test "telefone should be present" do
     @ong.telefone = ""
+    assert_not @ong.valid?
+  end
+
+  test "telefone should not be too long" do
+    @ong.telefone = "a" * 12
     assert_not @ong.valid?
   end
 
