@@ -57,11 +57,6 @@ class OngTest < ActiveSupport::TestCase
     assert_not @ong.valid?
   end
 
-  # test "senha should be present" do
-  #   @ong.senha = ""
-  #   assert_not @ong.valid?
-  # end
-
   test "password should be present (nonblank)" do
     @ong.password = @ong.password_confirmation = " " * 6
     assert_not @ong.valid?
@@ -71,11 +66,6 @@ class OngTest < ActiveSupport::TestCase
     @ong.password = @ong.password_confirmation = "a" * 5
     assert_not @ong.valid?
   end
-
-  # test "senha should not be too long" do
-  #   @ong.senha = "a" * 256
-  #   assert_not @ong.valid?
-  # end
 
   test "rua should be present" do
     @ong.rua = ""

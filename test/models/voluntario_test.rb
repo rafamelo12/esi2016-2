@@ -57,11 +57,6 @@ class VoluntarioTest < ActiveSupport::TestCase
     assert_not duplicate_user.valid?
   end
 
-  # test "senha should be present" do
-  #   @voluntario.senha = ""
-  #   assert_not @voluntario.valid?
-  # end
-
   test "password should be present (nonblank)" do
     @voluntario.password = @voluntario.password_confirmation = " " * 6
     assert_not @voluntario.valid?
@@ -71,11 +66,6 @@ class VoluntarioTest < ActiveSupport::TestCase
     @voluntario.password = @voluntario.password_confirmation = "a" * 5
     assert_not @voluntario.valid?
   end
-
-  # test "senha should not be too long" do
-  #   @voluntario.senha = "a" * 256
-  #   assert_not @voluntario.valid?
-  # end
 
   test "idade should be present" do
     @voluntario.idade = ""

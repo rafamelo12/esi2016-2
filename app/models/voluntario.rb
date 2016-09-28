@@ -5,7 +5,6 @@ class Voluntario < ActiveRecord::Base
     validates :email, presence: true, length: { maximum: 250 }, 
               format: { with: VALID_EMAIL_REGEX },
               uniqueness: { case_sensitive: false }
-    validates :senha, presence: true, length: { maximum: 250 }
     validates :password, presence: true, length: { minimum: 6 }
     validates :idade, presence: true
     validates :rua, presence: true, length: { maximum: 50 }

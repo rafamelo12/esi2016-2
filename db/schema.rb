@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927233257) do
+ActiveRecord::Schema.define(version: 20160928231754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "ongs", force: :cascade do |t|
     t.string   "email"
-    t.string   "senha"
     t.string   "nome"
     t.string   "rua"
     t.string   "bairro"
@@ -35,7 +34,6 @@ ActiveRecord::Schema.define(version: 20160927233257) do
 
   create_table "voluntarios", force: :cascade do |t|
     t.string   "email"
-    t.string   "senha"
     t.string   "nome"
     t.integer  "idade"
     t.string   "rua"
