@@ -2,7 +2,7 @@ require 'test_helper'
 
 class VoluntarioTest < ActiveSupport::TestCase
   def setup
-    @voluntario = Voluntario.new(email: "admin@ajudandoaajudar.org.br", senha: "hashSenha", 
+    @voluntario = Voluntario.new(email: "admin@ajudandoaajudar.org.br", 
                                  nome: "Admin", idade: 23, rua: "Ajudando", bairro: "Ajudar", 
                                  cidade: "São Paulo", estado: "SP", cep:"01123099", telefone: "111234-5678",
                                  password: "foobar", password_confirmation: "foobar")

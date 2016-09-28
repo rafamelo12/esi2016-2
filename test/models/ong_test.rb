@@ -2,7 +2,7 @@ require 'test_helper'
 
 class OngTest < ActiveSupport::TestCase
   def setup
-    @ong = Ong.new(email: "admin@ajudandoaajudar.org.br", senha: "hashSenha",
+    @ong = Ong.new(email: "admin@ajudandoaajudar.org.br",
                    nome: "Admin", rua: "Ajudando", bairro: "Ajudar", cidade: "São Paulo", 
                    estado: "SP", cep:"01123099", telefone: "111234-5678",
                    password: "foobar", password_confirmation: "foobar")
