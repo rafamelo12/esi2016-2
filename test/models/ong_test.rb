@@ -22,6 +22,11 @@ class OngTest < ActiveSupport::TestCase
     assert_not @ong.valid?
   end
 
+  test "nome should not be too short" do
+    @ong.nome = "a" * 4
+    assert_not @ong.valid?
+  end
+
   test "email should be present" do
     @ong.email = ""
     assert_not @ong.valid?
@@ -72,6 +77,11 @@ class OngTest < ActiveSupport::TestCase
     assert_not @ong.valid?
   end
 
+  test "rua should not be too short" do
+    @ong.rua = "a" * 4
+    assert_not @ong.valid?
+  end
+
   test "rua should not be too long" do
     @ong.rua = "a" * 51
     assert_not @ong.valid?
@@ -79,6 +89,11 @@ class OngTest < ActiveSupport::TestCase
 
   test "bairro should be present" do
     @ong.bairro = ""
+    assert_not @ong.valid?
+  end
+
+  test "bairro should not be too short" do
+    @ong.bairro = "a" * 4
     assert_not @ong.valid?
   end
 
@@ -92,6 +107,11 @@ class OngTest < ActiveSupport::TestCase
     assert_not @ong.valid?
   end
 
+  test "cidade should not be too short" do
+    @ong.cidade = "a" * 4
+    assert_not @ong.valid?
+  end
+
   test "cidade should not be too long" do
     @ong.cidade = "a" * 51
     assert_not @ong.valid?
@@ -99,6 +119,11 @@ class OngTest < ActiveSupport::TestCase
 
   test "estado should be present" do
     @ong.estado = ""
+    assert_not @ong.valid?
+  end
+
+  test "estado should not be too short" do
+    @ong.estado = "a"
     assert_not @ong.valid?
   end
 
@@ -112,8 +137,13 @@ class OngTest < ActiveSupport::TestCase
     assert_not @ong.valid?
   end
 
+  test "cep should not be too short" do
+    @ong.cep = "0" * 7
+    assert_not @ong.valid?
+  end
+
   test "cep should not be too long" do
-    @ong.cep = "a" * 9
+    @ong.cep = "0" * 9
     assert_not @ong.valid?
   end
 
@@ -122,8 +152,13 @@ class OngTest < ActiveSupport::TestCase
     assert_not @ong.valid?
   end
 
+  test "telefone should not be too short" do
+    @ong.telefone = "0" * 9
+    assert_not @ong.valid?
+  end
+
   test "telefone should not be too long" do
-    @ong.telefone = "a" * 12
+    @ong.telefone = "0" * 12
     assert_not @ong.valid?
   end
 

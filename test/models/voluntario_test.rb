@@ -22,6 +22,11 @@ class VoluntarioTest < ActiveSupport::TestCase
     assert_not @voluntario.valid?
   end
 
+  test "nome should not be too short" do
+    @voluntario.nome = "a" * 4
+    assert_not @voluntario.valid?
+  end
+
   test "email should be present" do
     @voluntario.email = ""
     assert_not @voluntario.valid?
@@ -77,6 +82,11 @@ class VoluntarioTest < ActiveSupport::TestCase
     assert_not @voluntario.valid?
   end
 
+  test "rua should not be too short" do
+    @voluntario.rua = "a" * 4
+    assert_not @voluntario.valid?
+  end
+
   test "rua should not be too long" do
     @voluntario.rua = "a" * 51
     assert_not @voluntario.valid?
@@ -84,6 +94,11 @@ class VoluntarioTest < ActiveSupport::TestCase
 
   test "bairro should be present" do
     @voluntario.bairro = ""
+    assert_not @voluntario.valid?
+  end
+
+  test "bairro should not be too short" do
+    @voluntario.bairro = "a" * 4
     assert_not @voluntario.valid?
   end
 
@@ -97,6 +112,11 @@ class VoluntarioTest < ActiveSupport::TestCase
     assert_not @voluntario.valid?
   end
 
+  test "cidade should not be too short" do
+    @voluntario.cidade = "a" * 4
+    assert_not @voluntario.valid?
+  end
+
   test "cidade should not be too long" do
     @voluntario.cidade = "a" * 51
     assert_not @voluntario.valid?
@@ -107,8 +127,13 @@ class VoluntarioTest < ActiveSupport::TestCase
     assert_not @voluntario.valid?
   end
 
+  test "estado should not be too short" do
+    @voluntario.estado = "a"
+    assert_not @voluntario.valid?
+  end
+
   test "estado should not be too long" do
-    @voluntario.estado = "a" * 51
+    @voluntario.estado = "a" * 3
     assert_not @voluntario.valid?
   end
 
@@ -117,8 +142,13 @@ class VoluntarioTest < ActiveSupport::TestCase
     assert_not @voluntario.valid?
   end
 
+  test "cep should not be too short" do
+    @voluntario.cep = "0" * 7
+    assert_not @voluntario.valid?
+  end
+
   test "cep should not be too long" do
-    @voluntario.cep = "a" * 9
+    @voluntario.cep = "0" * 9
     assert_not @voluntario.valid?
   end
 
@@ -127,8 +157,13 @@ class VoluntarioTest < ActiveSupport::TestCase
     assert_not @voluntario.valid?
   end
 
+  test "telefone should not be too short" do
+    @voluntario.telefone = "0" * 9
+    assert_not @voluntario.valid?
+  end
+
   test "telefone should not be too long" do
-    @voluntario.telefone = "a" * 12
+    @voluntario.telefone = "0" * 12
     assert_not @voluntario.valid?
   end
 
