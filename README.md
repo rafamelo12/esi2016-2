@@ -14,5 +14,5 @@ O nosso projeto consiste de criar uma plataforma web para conectar voluntários 
 * [Vanessa Nigro](http://www.github.com/vparo)
 
 ## Links Relacionados
-* [Heroku](https://esi-2016-2.herokuapp.com)
+* [Heroku](https://ajudandoaajudar.herokuapp.com)
 * [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/1856453)
