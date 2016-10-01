@@ -1,0 +1,19 @@
+<% provide(:title, "Log in") %>
+<h1>Log in</h1>
+
+<div>
+  <div>
+    <%= form_for(:session, url: '/login_ong') do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Log in" %>
+    <% end %>
+
+    <p>Nova ONG? <%= link_to "Registre-se agora!", '/signup_ong' %></p>
+  </div>
+</div>
