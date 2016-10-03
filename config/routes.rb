@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get    '/login_ong',  to: 'sessions#new'
   post   '/login_ong',  to: 'sessions#create'
   delete '/logout_ong', to: 'sessions#destroy'
+
+  get    '/usuarios/:id/perfil', to: 'usuarios#perfil'
+
   # get    '/login_voluntario',  to: 'sessions#new'
   # post   '/login_voluntario',  to: 'sessions#create'
   # delete '/logout_voluntario', to: 'sessions#destroy'
