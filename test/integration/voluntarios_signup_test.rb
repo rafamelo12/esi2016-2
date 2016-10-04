@@ -1,13 +1,14 @@
 require 'test_helper'
 
-class OngsSignupTest < ActionDispatch::IntegrationTest
+class VoluntariosSignupTest < ActionDispatch::IntegrationTest
   test "invalid signup information" do
-    get '/ongs/sign_up'
-    assert_no_difference 'Ong.count' do
-      post '/ongs', ong: { nome: "",
-                                 email: "ong@invalid",
+    get '/voluntarios/sign_up'
+    assert_no_difference 'Voluntario.count' do
+      post '/voluntarios', voluntario: { nome: "",
+                                 email: "voluntario@invalid",
                                  password: "foo",
                                  password_confirmation: "bar",
+                                 idade: 11111,
                                  rua: "",
                                  bairro: "",
                                  cidade: "",
@@ -18,12 +19,13 @@ class OngsSignupTest < ActionDispatch::IntegrationTest
   end
 
   test "valid signup information" do
-    get '/ongs/sign_up'
-    assert_difference 'Ong.count', 1 do
-      post '/ongs', ong: { nome: "Example",
+    get '/voluntarios/sign_up'
+    assert_difference 'Voluntario.count', 1 do
+      post '/voluntarios', voluntario: { nome: "Example",
                                  email: "example@example.com",
                                  password: "password",
                                  password_confirmation: "password",
+                                 idade: 10,
                                  rua: "Example",
                                  bairro: "Example",
                                  cidade: "Example",

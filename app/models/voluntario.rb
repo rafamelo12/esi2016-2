@@ -1,4 +1,8 @@
 class Voluntario < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+    devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
     before_save { self.email = email.downcase }
     validates :nome, presence: true, length: { in: 5..100 }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -16,5 +20,5 @@ class Voluntario < ActiveRecord::Base
               format: { with: VALID_CEP_TELEFONE_REGEX }
     validates :telefone, presence: true, length: { in: 10..11 },
               format: { with: VALID_CEP_TELEFONE_REGEX }
-    has_secure_password
+
 end

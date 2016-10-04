@@ -11,42 +11,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928231754) do
+ActiveRecord::Schema.define(version: 20161003234246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "ongs", force: :cascade do |t|
-    t.string   "email"
-    t.string   "nome"
-    t.string   "rua"
-    t.string   "bairro"
-    t.string   "cidade"
-    t.string   "estado"
-    t.string   "cep"
-    t.string   "telefone"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "password_digest"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.string   "nome",                                null: false
+    t.string   "rua",                                 null: false
+    t.string   "bairro",                              null: false
+    t.string   "cidade",                              null: false
+    t.string   "estado",                              null: false
+    t.string   "cep",                                 null: false
+    t.string   "telefone",                            null: false
   end
 
   add_index "ongs", ["email"], name: "index_ongs_on_email", unique: true, using: :btree
+  add_index "ongs", ["reset_password_token"], name: "index_ongs_on_reset_password_token", unique: true, using: :btree
 
   create_table "voluntarios", force: :cascade do |t|
-    t.string   "email"
-    t.string   "nome"
-    t.integer  "idade"
-    t.string   "rua"
-    t.string   "bairro"
-    t.string   "cidade"
-    t.string   "estado"
-    t.string   "cep"
-    t.string   "telefone"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "password_digest"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.string   "nome",                                null: false
+    t.integer  "idade",                               null: false
+    t.string   "rua",                                 null: false
+    t.string   "bairro",                              null: false
+    t.string   "cidade",                              null: false
+    t.string   "estado",                              null: false
+    t.string   "cep",                                 null: false
+    t.string   "telefone",                            null: false
   end
 
   add_index "voluntarios", ["email"], name: "index_voluntarios_on_email", unique: true, using: :btree
+  add_index "voluntarios", ["reset_password_token"], name: "index_voluntarios_on_reset_password_token", unique: true, using: :btree
 
 end
