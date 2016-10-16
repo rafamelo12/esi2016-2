@@ -1,42 +1,42 @@
-<% provide(:title, 'Registrar') %>
-<h1>Registre-se</h1>
-
-<div>
+<div class="container" style="margin-top: 500px;">
+  <h1>Registre-se</h1>
   <div>
-    <%= form_for(@ong) do |f| %>
-      <%= render '/shared/error_messages' %>
+    <div>
+      <%= form_for(@ong) do |f| %>
+        <%= render '/shared/error_messages' %>
 
-      <%= f.label :nome %>
-      <%= f.text_field :nome %> <br>
+        <%= f.label :nome %>
+        <%= f.text_field :nome %> <br>
 
-      <%= f.label :email %>
-      <%= f.email_field :email %> <br>
+        <%= f.label :email %>
+        <%= f.email_field :email %> <br>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %> <br>
+        <%= f.label :password %>
+        <%= f.password_field :password %> <br>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %> <br>
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation %> <br>
 
-      <%= f.label :rua %>
-      <%= f.text_field :rua %> <br>
+        <%= f.label :rua %>
+        <%= f.text_field :rua %> <br>
 
-      <%= f.label :bairro %>
-      <%= f.text_field :bairro %> <br>
+        <%= f.label :bairro %>
+        <%= f.text_field :bairro %> <br>
 
-      <%= f.label :cidade %>
-      <%= f.text_field :cidade %> <br>
+        <%= f.label :cidade %>
+        <%= f.text_field :cidade %> <br>
 
-      <%= f.label :estado %>
-      <%= f.text_field :estado %> <br>
+        <%= f.label :estado %>
+        <%= f.text_field :estado %> <br>
 
-      <%= f.label :cep %>
-      <%= f.text_field :cep %> <br>
+        <%= f.label :cep %>
+        <%= f.text_field :cep %> <br>
 
-      <%= f.label :telefone %>
-      <%= f.text_field :telefone %> <br>
+        <%= f.label :telefone %>
+        <%= f.text_field :telefone %> <br>
 
-      <%= f.submit "Criar minha conta" %> <br>
-    <% end %>
+        <%= f.submit "Criar minha conta" %> <br>
+      <% end %>
+    </div>
   </div>
 </div>

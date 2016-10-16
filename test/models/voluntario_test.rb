@@ -27,6 +27,11 @@ class VoluntarioTest < ActiveSupport::TestCase
     assert_not @voluntario.valid?
   end
 
+  test "noem should contain only characters" do
+    @voluntario.nome = "John 12 Doe"
+    assert_not @voluntario.valid?
+  end
+
   test "email should be present" do
     @voluntario.email = ""
     assert_not @voluntario.valid?

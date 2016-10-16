@@ -27,6 +27,12 @@ class OngTest < ActiveSupport::TestCase
     assert_not @ong.valid?
   end
 
+  test "nome should contain only characters" do
+    @ong.nome = "John 12 Doe"
+    assert_not @ong.valid?
+  end
+
+
   test "email should be present" do
     @ong.email = ""
     assert_not @ong.valid?

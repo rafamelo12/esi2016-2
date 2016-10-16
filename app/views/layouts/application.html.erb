@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Esi</title>
+  <title>Ajudando a Ajudar</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<div>
-  <% flash.each do |message_type, message| %>
-    <div><%= message %></div>
-  <% end %>
-</div>
+<%= render "shared/header" %>
 <%= yield %>
 
 </body>
