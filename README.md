@@ -15,4 +15,4 @@ O nosso projeto consiste de criar uma plataforma web para conectar voluntários 
 
 ## Links Relacionados
 * [Heroku](https://ajudandoaajudar.herokuapp.com)
-* [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/1856453)
+* [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/1862727)
