@@ -22,17 +22,17 @@ end
 
 When(/^I dont enter my information correctly$/) do
   post '/ongs', ong: { nome: "",
-                                 email: "ong@invalid",
-                                 password: "foo",
-                                 password_confirmation: "bar",
-                                 rua: "",
-                                 bairro: "",
-                                 cidade: "",
-                                 estado: "",
-                                 cep: "",
-                                 telefone: "" }
+                       email: "ong@invalid",
+                       password: "foo",
+                       password_confirmation: "bar",
+                       rua: "",
+                       bairro: "",
+                       cidade: "",
+                       estado: "",
+                       cep: "",
+                       telefone: "" }
 end
 
 Then(/^I should see the register page again with error messages$/) do
-  expect('/ongs/').to have_content("Nome can't be blank")
+  expect(page).to have_content("Nome can't be blank")
 end

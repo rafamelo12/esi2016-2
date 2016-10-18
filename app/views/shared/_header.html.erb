@@ -3,19 +3,27 @@
     <div class="nav navbar-nav">
       <a class="navbar-brand" href="/">Ajudando a Ajudar</a>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/ongs/sign_in">Login ONGs</a></li>
-          <li><a href="/voluntarios/sign_in">Login Voluntários</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registre-se! <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/ongs/sign_up">Registro ONGs</a></li>
-          <li><a href="/voluntarios/sign_up">Registro Voluntários</a></li>
-        </ul>
-      </li>
+        <% if not signed_in? %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <div></div>
+            <li><a href="/ongs/sign_in">Login ONGs</a></li>
+            <li><a href="/voluntarios/sign_in">Login Voluntários</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registre-se! <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/ongs/sign_up">Registro ONGs</a></li>
+            <li><a href="/voluntarios/sign_up">Registro Voluntários</a></li>
+          </ul>
+        </li>
+        <% else %>
+          <div class="navbar-brand">Olá, <%= current_ong %>!</div>
+          <div class="navbar-brand">
+            <%= link_to "Sair!", destroy_ong_session_path, :method => :delete %>
+          </div>
+        <% end %>
     </div>
   </nav>
 </div>

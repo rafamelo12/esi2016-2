@@ -6,7 +6,13 @@ Rails.application.routes.draw do
   devise_for :ongs, controllers: {
     sessions: 'ongs/sessions',
     registrations: 'ongs/registrations'
+    # controller: 'ongs/ongs_controller'
   }
+
+  resources :ongs, :only => [:show]
+  # resources :ongs
+
+  # get 'ongs/:id' => 'ongs#show'
   root 'static_pages#home'
 
   # get 'ongs/new'
@@ -22,7 +28,6 @@ Rails.application.routes.draw do
   # post   '/login_voluntario',  to: 'sessions#create'
   # delete '/logout_voluntario', to: 'sessions#destroy'
 
-  # resources :ongs
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
