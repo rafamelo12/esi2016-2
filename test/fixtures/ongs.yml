@@ -1,23 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   email: MyString
-#   senha: MyString
-#   nome: MyString
-#   rua: MyString
-#   bairro: MyString
-#   cidade: MyString
-#   estado: MyString
-#   cep: MyString
-#   telefone: MyString
+one:
+  nome: MyString
+  email: MyString
+  password: MyString
+  password_digest: MyString
+  rua: MyString
+  bairro: MyString
+  cidade: MyString
+  estado: MyString
+  cep: MyString
+  telefone: MyString
 
-# two:
-#   email: MyString
-#   senha: MyString
-#   nome: MyString
-#   rua: MyString
-#   bairro: MyString
-#   cidade: MyString
-#   estado: MyString
-#   cep: MyString
-#   telefone: MyString
+two:
+  nome: MyString
+  email: MyString
+  password: MyString
+  password_digest: MyString
+  rua: MyString
+  bairro: MyString
+  cidade: MyString
+  estado: MyString
+  cep: MyString
+  telefone: MyString

@@ -1,16 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :voluntarios, controllers: {
-    sessions: 'voluntarios/sessions',
-    registrations: 'voluntarios/registrations'
-  }
-  devise_for :ongs, controllers: {
-    sessions: 'ongs/sessions',
-    registrations: 'ongs/registrations'
-    # controller: 'ongs/ongs_controller'
-  }
 
-  resources :ongs, :only => [:show]
-  # resources :ongs
+  resources :ongs
+  resources :sessions
 
   # get 'ongs/:id' => 'ongs#show'
   root 'static_pages#home'

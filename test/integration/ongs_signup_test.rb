@@ -2,7 +2,7 @@ require 'test_helper'
 
 class OngsSignupTest < ActionDispatch::IntegrationTest
   test "invalid signup information" do
-    get '/ongs/sign_up'
+    get '/ongs/new'
     assert_no_difference 'Ong.count' do
       post '/ongs', ong: { nome: "",
                                  email: "ong@invalid",
@@ -15,10 +15,11 @@ class OngsSignupTest < ActionDispatch::IntegrationTest
                                  cep: "",
                                  telefone: "" } 
     end
+    assert_template 'ongs/new'
   end
 
   test "valid signup information" do
-    get '/ongs/sign_up'
+    get '/ongs/new'
     assert_difference 'Ong.count', 1 do
       post '/ongs', ong: { nome: "Example",
                                  email: "example@example.com",
@@ -32,6 +33,6 @@ class OngsSignupTest < ActionDispatch::IntegrationTest
                                  telefone: "0000000000" }
     end
     follow_redirect!
-    assert_template '/'
+    assert_template 'ongs/show'
   end
 end
