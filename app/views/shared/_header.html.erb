@@ -14,7 +14,7 @@
         <% if logged_in? %>
           <li><a href="/ongs/<%=@current_ong.id%>">Olá, <%= @current_ong.nome %>!</a></li>
           <li><%= link_to "Sair :(", logout_path_url, method: :delete %></li>
-          <!-- <li><a href="/session/<%=@current_ong.id%>/" data-method="delete">Sair :(</a></li> -->
+          <li><a href="/session/<%=@current_ong.id%>/" data-method="delete">Sair :(</a></li>
         <% else %>
           <li><a href="/sessions/new">Login ONGs!</a></li>
         <% end %>

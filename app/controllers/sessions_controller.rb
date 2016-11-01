@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    
   end
 
   def create
@@ -9,10 +10,12 @@ class SessionsController < ApplicationController
       redirect_to ong
     else
       flash.now[:danger] = 'Email ou senha inválidos!'
-      render 'new'
+      render 'sessions/new'
     end
   end
 
   def destroy
+    log_out
+    redirect_to root_url
   end
 end

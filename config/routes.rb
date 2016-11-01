@@ -1,16 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :voluntarios, controllers: {
-    sessions: 'voluntarios/sessions',
-    registrations: 'voluntarios/registrations'
-  }
-  devise_for :ongs, controllers: {
-    sessions: 'ongs/sessions',
-    registrations: 'ongs/registrations'
-    # controller: 'ongs/ongs_controller'
-  }
 
-  resources :ongs, :only => [:show]
-  # resources :ongs
+  resources :ongs
+  resources :sessions
 
   # get 'ongs/:id' => 'ongs#show'
   root 'static_pages#home'
@@ -23,7 +14,7 @@ Rails.application.routes.draw do
   # post   '/signup_ong', to: 'ongs#create'
   # get    '/login_ong',  to: 'sessions#new'
   # post   '/login_ong',  to: 'sessions#create'
-  # delete '/logout_ong', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy', as: :logout_path
   # get    '/login_voluntario',  to: 'sessions#new'
   # post   '/login_voluntario',  to: 'sessions#create'
   # delete '/logout_voluntario', to: 'sessions#destroy'

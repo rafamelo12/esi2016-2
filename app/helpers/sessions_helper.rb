@@ -10,4 +10,9 @@ module SessionsHelper
   def logged_in?
     !current_ong.nil?
   end
+
+  def log_out
+    session.delete(:ong_id)
+    @current_ong = nil
+  end
 end

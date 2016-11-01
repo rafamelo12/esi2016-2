@@ -1,8 +1,5 @@
 class Ong < ActiveRecord::Base
-    # Include default devise modules. Others available are:
-    # :confirmable, :lockable, :timeoutable and :omniauthable
-    devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+    has_secure_password
     before_save { self.email = email.downcase }
     VALID_NOME_REGEX = /\A[a-zA-Z ]+\Z/
     validates :nome, presence: true, length: { in: 5..100 },

@@ -36,7 +36,7 @@ gem 'pg'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'devise'
+# gem 'devise'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 
@@ -54,6 +54,7 @@ group :development, :test do
   # Call Cucumber for User Stories Testing
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+  gem 'byebug'
 end
 
 group :development do

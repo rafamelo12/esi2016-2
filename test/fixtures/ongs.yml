@@ -1,20 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   email: MyString
-#   senha: MyString
-#   nome: MyString
-#   rua: MyString
-#   bairro: MyString
-#   cidade: MyString
-#   estado: MyString
-#   cep: MyString
-#   telefone: MyString
+one:
+  nome: "Ajudando a Ajudar"
+  email: "contato@ajudandoaajudar.com.br"
+  password: ""
+  password_digest: <%= BCrypt::Password.create("foobar", cost: 4) %>
+  rua: "Rua A"
+  bairro: "Bairro A"
+  cidade: "Cidade A"
+  estado: "SP"
+  cep: "01123050"
+  telefone: "11912345678"
 
 # two:
-#   email: MyString
-#   senha: MyString
 #   nome: MyString
+#   email: MyString
+#   password: MyString
+#   password_digest: MyString
 #   rua: MyString
 #   bairro: MyString
 #   cidade: MyString
