@@ -1,29 +1,48 @@
-<div style="margin-top: 50px">
-  <div>
-    <div>Nome: <%= @ong.nome %></div>
-  </div>
-  <div>
-    <div>Email: <%= @ong.email %></div>
-  </div> 
-  <div>
-    <div>Encrypted Password: <%= @ong.encrypted_password %></div>
-  </div> 
-  <div>
-    <div>Rua: <%= @ong.rua %></div>
-  </div>
-  <div>
-    <div>Bairro: <%= @ong.bairro %></div>
-  </div>
-  <div>
-    <div>Cidade: <%= @ong.cidade %></div>
-  </div>
-  <div>
-    <div>Estado: <%= @ong.estado %></div>
-  </div>
-  <div>
-    <div>CEP: <%= @ong.cep %></div>
-  </div>
-  <div>
-    <div>Telefone: <%= @ong.telefone %></div>
-  </div>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Informação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nome:</td>
+        <td><%= @ong.nome %></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><%= @ong.email %></td>
+      </tr>
+      <tr>
+        <td>Senha:</td>
+        <td><%= @ong.password_digest %></td>
+      </tr>
+      <tr>
+        <td>Rua:</td>
+        <td><%= @ong.rua %></td>
+      </tr>
+      <tr>
+        <td>Bairro:</td>
+        <td><%= @ong.bairro %></td>
+      </tr>
+      <tr>
+        <td>Cidade:</td>
+        <td><%= @ong.cidade %></td>
+      </tr>
+      <tr>
+        <td>Estado:</td>
+        <td><%= @ong.estado %></td>
+      </tr>
+      <tr>
+        <td>CEP:</td>
+        <td><%= @ong.cep %></td>
+      </tr>
+      <tr>
+        <td>Telefone:</td>
+        <td><%= @ong.telefone %></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
