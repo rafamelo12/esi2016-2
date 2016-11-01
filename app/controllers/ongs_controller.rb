@@ -12,6 +12,8 @@ class OngsController < ApplicationController
   def create
     @ong = Ong.new(ong_params)
     if @ong.save
+      log_in @ong
+      flash[:success] = "Bem-vindo ao Ajudando a Ajudar!"
       redirect_to @ong
     else
       render 'new'
