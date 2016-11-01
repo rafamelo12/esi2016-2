@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :ongs
   resources :sessions
-
+  delete '/logout', to: 'sessions#destroy', as: :logout_path
   # get 'ongs/:id' => 'ongs#show'
   root 'static_pages#home'
 
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # post   '/signup_ong', to: 'ongs#create'
   # get    '/login_ong',  to: 'sessions#new'
   # post   '/login_ong',  to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy', as: :logout_path
+  
   # get    '/login_voluntario',  to: 'sessions#new'
   # post   '/login_voluntario',  to: 'sessions#create'
   # delete '/logout_voluntario', to: 'sessions#destroy'
