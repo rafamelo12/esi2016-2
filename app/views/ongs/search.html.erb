@@ -1,8 +1,25 @@
 <div class="container">
   <% @ongs.each do |ong| %>
-      <%= ong.cidade %> <br>
-      <%= ong.estado %> <br>
-      <%= ong.interesses %> <br>
-      <%= ong.sobre %>
+    <div class="row">
+      <div class="col-md-2">
+        <center>
+          <% if ong.avatar.nil? %>
+            <%= image_tag "placeholder_user.png", style: 'border-radius: 100px; margin-top: 10px;', height: '100px;', width: '100px;' %>
+          <% else %>
+            <%= image_tag ong.avatar, style: 'border-radius: 100px; margin-top: 10px;', height: '100px;', width: '100px;' %>
+          <% end %>
+        </center>
+      </div>
+      <div class="col-md-10">
+        <h1><a href="/ongs/<%=ong.id%>"><%= ong.nome %></a></h1>
+        <span><b>Cidade: </b></span><%= ong.cidade %><span> <b>Estado: </b></span><%= ong.estado %>
+        <br><span><b>Interesses: </b></span> <%= ong.interesses %>
+        <br><b>Sobre:</b>
+        <p>
+          <%= ong.sobre %>
+        </p>
+      </div>
+    </div>
+    <hr>
   <% end %>
 </div>
