@@ -18,5 +18,7 @@ class Ong < ActiveRecord::Base
               format: { with: VALID_CEP_TELEFONE_REGEX }
     validates :telefone, presence: true, length: { in: 10..11 },
               format: { with: VALID_CEP_TELEFONE_REGEX }
+    validates :sobre, length: { in: 1..500 }
+    validates :interesses, length: { in: 1..500 }
 
 end

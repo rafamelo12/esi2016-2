@@ -4,9 +4,9 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="/">Ajudando a Ajudar</a>
     </div>
-      <form class="navbar-form navbar-left">
+      <form class="navbar-form navbar-left" action="/ongs/">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Uma ONG te aguarda!" style="width: 500px !important;">
+          <input name="user_search" id="user_search" type="text" class="form-control" placeholder="Uma ONG te aguarda!" style="width: 500px !important;">
         </div>
         <button type="submit" class="btn btn-default">Procurar!</button>
       </form>
@@ -14,9 +14,9 @@
         <% if logged_in? %>
           <li><a href="/ongs/<%=@current_ong.id%>">Olá, <%= @current_ong.nome %>!</a></li>
           <li><%= link_to "Sair :(", logout_path_url, method: :delete %></li>
-          <li><a href="/session/<%=@current_ong.id%>/" data-method="delete">Sair :(</a></li>
         <% else %>
           <li><a href="/sessions/new">Login ONGs!</a></li>
+          <li><a href="/ongs/new">Registre-se aqui!</a></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

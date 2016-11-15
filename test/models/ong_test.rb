@@ -5,7 +5,9 @@ class OngTest < ActiveSupport::TestCase
     @ong = Ong.new(email: "admin@ajudandoaajudar.org.br",
                    nome: "Admin", rua: "Ajudando", bairro: "Ajudar", cidade: "São Paulo", 
                    estado: "SP", cep:"01123099", telefone: "111234-5678",
-                   password: "foobar", password_confirmation: "foobar")
+                   password: "foobar", password_confirmation: "foobar",
+                   sobre: "Somos responsáveis por essa plataforma maravilhosa!",
+                   interesses: "ONGs, Voluntários")
   end
 
   test "should be valid" do
@@ -165,6 +167,26 @@ class OngTest < ActiveSupport::TestCase
 
   test "telefone should not be too long" do
     @ong.telefone = "0" * 12
+    assert_not @ong.valid?
+  end
+
+  test "interesses should not be too short" do
+    @ong.interesses = ""
+    assert_not @ong.valid?
+  end
+
+  test "interesses should not be too long" do
+    @ong.interesses = "a" * 501
+    assert_not @ong.valid?
+  end
+
+  test "sobre should not be too short" do
+    @ong.sobre = ""
+    assert_not @ong.valid?
+  end
+
+  test "sobre should not be too long" do
+    @ong.sobre = "a" * 501
     assert_not @ong.valid?
   end
 

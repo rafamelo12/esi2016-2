@@ -13,7 +13,9 @@ class OngsSignupTest < ActionDispatch::IntegrationTest
                                  cidade: "",
                                  estado: "",
                                  cep: "",
-                                 telefone: "" } 
+                                 telefone: "",
+                                 interesses: "",
+                                 sobre: "" } 
     end
     assert_template 'ongs/new'
   end
@@ -30,7 +32,9 @@ class OngsSignupTest < ActionDispatch::IntegrationTest
                                  cidade: "Example",
                                  estado: "EX",
                                  cep: "00000000",
-                                 telefone: "0000000000" }
+                                 telefone: "0000000000",
+                                 interesses: "Cachorros",
+                                 sobre: "Awesome example!" }
     end
     follow_redirect!
     assert_template 'ongs/show'
