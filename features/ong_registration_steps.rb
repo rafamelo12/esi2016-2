@@ -20,20 +20,19 @@ Then(/^I should register and login automatically$/) do
   expect('/ongs/:id')
 end
 
-When(/^I dont enter my information correctly$/) do
-  post '/ongs', ong: { nome: "",
-                       email: "ong@invalid",
-                       password: "foo",
-                       password_confirmation: "bar",
-                       rua: "",
-                       bairro: "",
-                       cidade: "",
-                       estado: "",
-                       cep: "",
-                       telefone: "" }
+  When(/^I dont enter my information correctly$/) do
+  @my_response = post '/ongs', ong: {  nome: "",
+                                       email: "ong@invalid",
+                                       password: "foo",
+                                       password_confirmation: "bar",
+                                       rua: "",
+                                       bairro: "",
+                                       cidade: "",
+                                       estado: "",
+                                       cep: "",
+                                       telefone: "" }
 end
 
 Then(/^I should see the register page again with error messages$/) do
-  # expect(page).to have_content("Nome can't be blank")
-  expect('/ongs/new')
+  expect(@my_response.body).to have_content("Email is invalid")
 end

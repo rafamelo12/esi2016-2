@@ -22,7 +22,8 @@ class OngsController < ApplicationController
   end
 
   def index
-    @ongs = Ong.where('lower(nome) LIKE lower(?) OR lower(interesses) LIKE lower(?)', "%#{params[:user_search]}%", "%#{params[:user_search]}%").order(:nome)
+    # @ongs = Ong.where('lower(nome) LIKE lower(?) OR lower(interesses) LIKE lower(?)', "%#{params[:user_search]}%", "%#{params[:user_search]}%").order(:nome)
+    @ongs = ongs_search(params[:user_search])
     render 'search'
   end
 
@@ -36,6 +37,10 @@ class OngsController < ApplicationController
     render 'edit'
   end
 
+  def ongs_search(user_search)
+    return Ong.where('lower(nome) LIKE lower(?) OR lower(interesses) LIKE lower(?)', "%#{user_search}%", "%#{user_search}%").order(:nome)
+  end
+  
   private
 
       def ong_params

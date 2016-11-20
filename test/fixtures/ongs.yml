@@ -11,6 +11,9 @@ one:
   estado: "SP"
   cep: "01123050"
   telefone: "11912345678"
+  avatar: ""
+  interesses: "ONGs, Animais, Humanos"
+  sobre: "Ajudar é o nosso lema!"
 
 # two:
 #   nome: MyString
