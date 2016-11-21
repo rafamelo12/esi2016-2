@@ -5,7 +5,7 @@ require 'coveralls'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  Coveralls.wear_merged!
+  Coveralls.wear!
 
   fixtures :all
 

@@ -3,6 +3,7 @@ before_install:
   # - mysql -u root -e "create database IF NOT EXISTS esi_test;"
   - psql -c "create database esi_test;" -U postgres
 before_script:
+  - bundle exec rake db:migrate
   - bundle exec rake db:fixtures:load
 rvm:
   - 2.2
