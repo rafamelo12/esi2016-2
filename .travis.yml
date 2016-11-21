@@ -2,6 +2,8 @@ language: ruby
 before_install:
   # - mysql -u root -e "create database IF NOT EXISTS esi_test;"
   - psql -c "create database esi_test;" -U postgres
+before_script:
+  - rake db:fixtures:load
 rvm:
   - 2.2
 services:
