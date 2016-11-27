@@ -1,21 +1,40 @@
 <% provide(:title, "Log in") %>
 <div class="container">
-<h1>Log in</h1>
+  <h1>Log in</h1>
 
-<div>
-  <div>
+  <div class="row">
     <%= form_for(:session, url: '/sessions') do |f| %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.submit "Log in" %>
-    <% end %>
-
-    <p>Nova ONG? <%= link_to "Registre-se agora!", '/ongs/new' %></p>
+      <div class="row" style="margin-left: 5px;">
+        <div class="col-md-2">
+          <%= f.label :email, class: 'form-control' %>
+        </div>
+        <div class="col-md-4">
+          <%= f.email_field :email, class: 'form-control' %>  
+        </div>  
+      </div>
+      
+      <div class="row" style="margin-top: 5px; margin-left: 5px;">
+        <div class="col-md-2">
+          <%= f.label :password, class: 'form-control' %>
+        </div>
+        <div class="col-md-4">
+          <%= f.password_field :password, class: 'form-control' %>  
+        </div>  
+      </div>
+      
   </div>
-</div>  
+  <span style="padding: 5px;">
+    <div class="row">
+      <div class="col-md-2">
+        <%= f.submit "Log in", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+    </div>
+    <div class="row">
+      <div class="col-md-4" style="margin-top: 5px;">
+        <p>Nova ONG? <%= link_to "Registre-se agora!", '/ongs/new' %></p>  
+      </div>
+    </div>  
+  </span>
+  
 </div>

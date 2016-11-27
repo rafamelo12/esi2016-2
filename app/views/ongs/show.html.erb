@@ -1,44 +1,105 @@
 <div class="container">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Informação</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Nome:</td>
-        <td><%= @ong.nome %></td>
-      </tr>
-      <tr>
-        <td>Email:</td>
-        <td><%= @ong.email %></td>
-      </tr>
-      <tr>
-        <td>Rua:</td>
-        <td><%= @ong.rua %></td>
-      </tr>
-      <tr>
-        <td>Bairro:</td>
-        <td><%= @ong.bairro %></td>
-      </tr>
-      <tr>
-        <td>Cidade:</td>
-        <td><%= @ong.cidade %></td>
-      </tr>
-      <tr>
-        <td>Estado:</td>
-        <td><%= @ong.estado %></td>
-      </tr>
-      <tr>
-        <td>CEP:</td>
-        <td><%= @ong.cep %></td>
-      </tr>
-      <tr>
-        <td>Telefone:</td>
-        <td><%= @ong.telefone %></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col-md-2">
+        <center>
+          <% if @ong.avatar.nil? or @ong.avatar == "" %>
+            <%= image_tag "placeholder_user.png", style: 'border-radius: 100px; margin-top: 10px;', height: '100px;', width: '100px;' %>
+          <% else %>
+            <%= image_tag @ong.avatar, style: 'border-radius: 100px; margin-top: 10px;', height: '100px;', width: '100px;' %>
+          <% end %>
+        </center>
+      </div>
+      <div class="col-md-6">
+        <h1><%= @ong.nome %></h1>
+      </div>
+  </div>
+  <div class="row" style="margin-top: 5px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <span class="form-control">E-mail</span>
+    </div>
+    <div class="col-md-4">
+      <span class="form-control"><b><%= @ong.email %></b></span>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 5px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <span class="form-control">Rua</span>
+    </div>
+    <div class="col-md-4">
+      <span class="form-control"><b><%= @ong.rua %></b></span>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 5px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <span class="form-control">Bairro</span>
+    </div>
+    <div class="col-md-4">
+      <span class="form-control"><b><%= @ong.bairro %></b></span>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 5px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <span class="form-control">Cidade</span>
+    </div>
+    <div class="col-md-4">
+      <span class="form-control"><b><%= @ong.cidade %></b></span>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 5px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <span class="form-control">Estado</span>
+    </div>
+    <div class="col-md-4">
+      <span class="form-control"><b><%= @ong.estado %></b></span>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 5px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <span class="form-control">CEP</span>
+    </div>
+    <div class="col-md-4">
+      <span class="form-control"><b><%= @ong.cep %></b></span>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 5px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <span class="form-control">Telefone</span>
+    </div>
+    <div class="col-md-4">
+      <span class="form-control"><b><%= @ong.telefone %></b></span>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 5px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <span class="form-control">Interesses</span>
+    </div>
+    <div class="col-md-4">
+      <span class="form-control"><b><%= @ong.interesses %></b></span>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 5px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <span class="form-control">Sobre</span>
+    </div>
+    <div class="col-md-4">
+      <span class="form-control"><b><%= @ong.sobre %></b></span>
+    </div>
+  </div>
 </div>
