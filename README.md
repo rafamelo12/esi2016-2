@@ -6,12 +6,8 @@ Repositório para o Projeto de ACH2006 - Engenharia de Sistemas I da Universidad
 # Ajudando a Ajudar
 O nosso projeto consiste de criar uma plataforma web para conectar voluntários e ONGs. A ideia por trás do Ajudando a Ajudar é disponibilizar uma plataforma onde as ONGs podem ter mais visibilidade e falar sobre o seu trabalho e ao mesmo tempo facilitar com que as pessoas que desejam ser voluntárias possam encontrar facilmente uma ONG que o interesse e entrar em contato para ser voluntário.
 ## Integrantes do Grupo
-* [Carolina Tiemi](http://www.github.com/tiemiarashiro)
-* [Daniel Carvalho](http://www.github.com/dHubCarvalho)
 * [Gabriela Duarte](http://www.github.com/Gabi-94)
-* [Lucas Senra](http://www.github.com/lucasenra)
 * [Rafael Melo](http://www.github.com/rafamelo12)
-* [Vanessa Nigro](http://www.github.com/vparo)
 
 ## Links Relacionados
 * [Heroku](https://ajudandoaajudar.herokuapp.com)
